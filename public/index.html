@@ -3,7 +3,7 @@
 <head>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="main.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
@@ -11,15 +11,30 @@
     <title>Contact List App</title>
 </head>
 <body>
+    <div class="nav">
+        <div class="container">
+            <ul class="pull-left">
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/surveys">Surveys</a></li>
+                <li><a href="/info">Info</a></li>
+
+            </ul>
+            <ul class="pull-right">
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
     <div class = "container" ng-controller = "AppCtrl as appctrl">
-        <h1>Contact List App</h1>
+        <h1>Surveys</h1>
         <table class = "table">
             <thead>
                 <tr>
+                    <th>IDcode</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Number</th>
-                    <th>Action</th>
+                    <th>Region</th>
+                    <th>dates</th>
                     <th>&nbsp</th>
                 </tr>
 
@@ -30,8 +45,9 @@
                     <td>{{cntct.name}}</td>
                     <td>{{cntct.email}}</td>
                     <td>{{cntct.phone}}</td>
-                    <td><button class="btn btn-danger" ng-click="removeContact(cntct._id)">Remove</button></td>
                     <td><button class="btn btn-warning" ng-click="editContact(cntct._id)">Edit</button>&nbsp</td>
+                    <td><button class="btn btn-danger" ng-click="removeContact(cntct._id)">Remove</button></td>
+
                 </tr>
                 <tr  >
                     <td><input class="form-control" ng-model="contact.name"></td>

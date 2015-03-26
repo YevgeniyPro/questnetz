@@ -2,8 +2,7 @@ var app = angular.module('app', []);
 
 app.controller('AppCtrl',['$http','$scope', function($http, $scope){
     console.log("Hello from ng-controller");
-    this.contacts = {};
-    var that = this;
+
     $scope.contact = {};
 
     var refresh = function() {
