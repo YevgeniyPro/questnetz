@@ -1,0 +1,18 @@
+
+.nav {
+   padding-top: 10px;
+   background-color: #bbbbbb;
+
+}
+
+.nav a {
+     color: #5a5a5a;
+
+
+     padding: 14px 10px;
+     text-transform: uppercase;
+ }
+
+.nav li {
+    display: inline;
+}

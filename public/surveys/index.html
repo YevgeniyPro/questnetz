@@ -1,0 +1,82 @@
+<!DOCTYPE>
+<html ng-app = "app">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../main.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="/controllers/surveyController.js"></script>
+    <title>Contact List App</title>
+</head>
+<body>
+<div class="nav">
+    <div class="container">
+        <ul class="pull-left">
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/surveys">Surveys</a></li>
+            <li><a href="/info">Info</a></li>
+
+        </ul>
+        <ul class="pull-right">
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </div>
+</div>
+<div class = "container" ng-controller = "surveyCtrl as survctrl">
+    <h1>Surveys</h1>
+    <table class = "table">
+        <thead>
+        <tr>
+            <th>IDcode</th>
+            <th>Name</th>
+            <th>Region</th>
+            <th>Active</th>
+            <th>&nbsp</th>
+        </tr>
+
+        </thead>
+        <tbody>
+
+        <tr ng-repeat = "survey in surveys">
+            <td>{{survey.IDcode}}</td>
+            <td>{{survey.name}}</td>
+            <td>{{survey.region}}</td>
+            <td>{{survey.active}}</td>
+            <td><button class="btn btn-warning" ng-click="editSurvey(survey._id)">Edit</button>&nbsp</td>
+            <td><button class="btn btn-danger" ng-click="removeSurvey(survey._id)">Remove</button></td>
+
+        </tr>
+        <tr  >
+            <td><input type="text" placeholder="Enter IDcode" autofocus  class="form-control" ng-model="survey.IDcode"></td>
+            <td><input class="form-control" ng-model="survey.name"></td>
+            <td><input type="text" class="form-control" list="regions" ng-model="survey.region"></td>
+            <datalist id="regions">
+                <option value = "West">
+                <option value = "East">
+                <option value = "Center">
+                <option value = "North">
+                <option value = "South">
+            </datalist>
+            <td><input type="text" class="form-control" list="isActive" ng-model="survey.active"></td>
+            <datalist id="isActive">
+                <option value = "active">
+                <option value = "not active">
+
+            </datalist>
+            <td><button class = "btn btn-primary" ng-click="addSurvey()">Add Survey</button></td>
+            <td><button class = "btn btn-info" ng-click="updateSurvey()">Update</button>&nbsp&nbsp <button
+                    class="btn btn-info" ng-click="clearForm()">Clear</button></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+
+</html>
